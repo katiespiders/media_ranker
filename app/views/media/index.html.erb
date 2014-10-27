@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rank All the Things</title>
+</head>
+
+<body>
+  <h1><%= params.inspect %></h1>
+  <% @media.each do |thing| %>
+    <li><%= thing.title %></li>
+  <% end %>
+</body>
+</html>
