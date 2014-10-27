@@ -4,6 +4,10 @@ class MediaController < ApplicationController
     @media = type_class.all
   end
 
+  def show
+    @medium = type_class.find(params[:id])
+  end
+
   private
     def set_type
       @type = params[:type]
@@ -14,7 +18,7 @@ class MediaController < ApplicationController
     end
 
     def type_class
-      type.constantize
+      type.constantize # looks for a declared constant with name type
     end
 
 end

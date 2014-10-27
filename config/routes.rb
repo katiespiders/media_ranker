@@ -1,9 +1,10 @@
 
 Rails.application.routes.draw do
-  resources :media
+  resources :media # creates all RESTful routes
   resources :books, controller: 'media', type: 'Book'
   resources :albums, controller: 'media', type: 'Album'
-  resources :movies, controller: 'media', type: 'Movie'
+  resources :movies, controller: 'media', type: 'Movie' # create RESTful routes for each class that inherits from Medium, specifying that all use the media controller
+
   root "media#index"
 
 #  get "/", to: "home#index", as: :root
