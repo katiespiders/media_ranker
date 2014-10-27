@@ -1,4 +1,12 @@
+
 Rails.application.routes.draw do
+  resources :media
+  resources :books, controller: 'media', type: 'Book'
+  resources :albums, controller: 'media', type: 'Album'
+  resources :movies, controller: 'media', type: 'Movie'
+  root "media#index"
+
+#  get "/", to: "home#index", as: :root
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
