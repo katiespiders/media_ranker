@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rank All the Things</title>
+  <title>Rank All the <%= params[:type]? @type.pluralize : "Things" %></title>
 </head>
 
 <body>
@@ -10,12 +10,15 @@
       <% if params[:type] %>
         <div class="col-sm-12">
           <%= render 'shared/media_list', obj: params[:type] %>
+          <%= link_to "See all media", root_path %>
         </div>
-      <% else %>
 
+      <% else %>
         <% @media.types.each do |type| %>
           <div class="col-sm-4">
             <%= render 'shared/media_list', obj: type %>
+            <% types = type.downcase.pluralize %>
+            <%= link_to "See all #{types}", "/#{types}" %>
           </div>
         <% end %>
       <% end %>

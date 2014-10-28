@@ -6,8 +6,8 @@ class MediaController < ApplicationController
   end
 
   def show
-    set_attribution
     @medium = type_class.find(params[:id])
+    set_attribution
   end
 
   def new
@@ -25,13 +25,11 @@ class MediaController < ApplicationController
     end
 
     def set_attribution
-      @attribution = case @type
+      @attribution = case @medium.type
         when "Book" then "Author: "
         when "Movie" then "Director: "
         when "Album" then "Artist: "
         else "Creator: "
       end
     end
-
-
 end
