@@ -1,3 +1,6 @@
-<%= obj.all.each do |thing| %>
-  <li> <%= thing.title %> </li>
-<% end %>
+<h1>Greatest <%= obj.downcase.pluralize %></h1>
+<ol>
+  <% obj.constantize.all.each do |thing| %>
+    <li><%= thing.title %></li>
+  <% end %>
+</ol>
