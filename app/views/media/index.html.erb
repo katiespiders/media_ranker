@@ -7,9 +7,10 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <% if @medium %>
+      <% current_type = @medium ? @medium.type : params[:type] %>
+      <% if current_type %>
         <div class="col-sm-12">
-          <%= render 'shared/media_list', obj: @medium.type %>
+          <%= render 'shared/media_list', obj: current_type %>
           <%= link_to "See all media", root_path %>
         </div>
 

@@ -1,17 +1,11 @@
 class MediaController < ApplicationController
   before_action :set_type
   before_action :find_medium, only: [:index, :show, :upvote]
+  before_action :set_attribution, only: [:show, :new]
+  # new and show apparently don't need to be explicitly defined; before_actions will run before views are rendered
 
   def index
     @media = type_class.all
-  end
-
-  def show
-    set_attribution # does this actually need to be after line 9? can this be a before_action?
-  end
-
-  def new
-    set_attribution
   end
 
   def create
@@ -25,7 +19,7 @@ class MediaController < ApplicationController
 
   def upvote
     @medium.update(votes: @medium.votes+1)
-    render :index
+    render :index # figure out how to tell this method what page it was called from?
   end
 
   private
