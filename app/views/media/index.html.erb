@@ -7,9 +7,9 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <% if params[:type] %>
+      <% if @medium %>
         <div class="col-sm-12">
-          <%= render 'shared/media_list', obj: params[:type] %>
+          <%= render 'shared/media_list', obj: @medium.type %>
           <%= link_to "See all media", root_path %>
         </div>
 
@@ -17,6 +17,7 @@
         <% @media.types.each do |type| %>
           <div class="col-sm-4">
             <%= render 'shared/media_list', obj: type %>
+            <!-- change this to a media table partial -->
             <% types = type.downcase.pluralize %>
             <%= link_to "See all #{types}", "/#{types}" %>
           </div>

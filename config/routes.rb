@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :albums, controller: 'media', type: 'Album'
   resources :movies, controller: 'media', type: 'Movie' # create RESTful routes for each class that inherits from Medium, specifying that all use the media controller
 
+  patch "/media/:id/upvote", to: "media#upvote", as: :upvote
+
   root "media#index"
 
 #  get "/", to: "home#index", as: :root
