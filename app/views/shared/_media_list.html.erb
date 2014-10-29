@@ -1,7 +1,6 @@
 <h1>Greatest <%= obj.downcase.pluralize %></h1>
 <ol>
-  <!-- sort obj.all in here somewhere -->
-  <% obj.constantize.all.each do |thing| %>
+  <% obj.constantize.order('votes DESC').each do |thing| %>
     <li><%= link_to "#{thing.title}", "/#{thing.type.downcase.pluralize}/#{thing.id}" %>, <%= thing.votes %> votes <%= button_to "Upvote", upvote_path(thing.id), method: :patch %></li> <!--this would be an awesome place for some helpers!-->
   <% end %>
 </ol>
