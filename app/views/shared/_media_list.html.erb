@@ -1,6 +1,7 @@
 <h1>Greatest <%= obj.downcase.pluralize %></h1>
 <ol>
   <% obj.constantize.all.each do |thing| %>
-    <li><%= thing.title %></li>
+    <li><%= link_to "#{thing.title}", "/#{thing.type.downcase.pluralize}/#{thing.id}" %></li>
   <% end %>
 </ol>
+<%= link_to "Create new #{obj.downcase}", "/#{obj.downcase.pluralize}/new"  %>

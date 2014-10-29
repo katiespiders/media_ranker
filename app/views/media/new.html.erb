@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create new <%= @type.downcase %></title>
+</head>
+
+<body>
+  <%= form_for :media, url: {action: "create"} do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label @attribution %>
+    <%= f.text_field :author %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <% if @type == "Medium" %>
+      <%= select_tag(:type, options_for_select([["Album", "Album"], ["Book", "Book"], ["Movie", "Movie"]])) %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</body>
+</html>

@@ -8,5 +8,7 @@
   <h1 style="display:inline"><%= @medium.title %>    </h1>
   <%= @attribution %> <%= @medium.author %>
   <div><%= @medium.description %></div>
+  <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
+  <%= link_to "See all media", root_path %>
 </body>
 </html>
