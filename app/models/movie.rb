@@ -1,1 +1,6 @@
-class Movie < Medium; end
+class Movie < Medium
+
+  def self.types
+    ["Movie"]    
+  end
+end
