@@ -10,5 +10,6 @@
   <div><%= @medium.description %></div>
   <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
   <%= link_to "See all media", root_path %>
+  <%= button_to "Delete #{@medium.title}", medium_path(@medium.id), {method: :delete} %> <!--why does this have to be in {} when it doesn't on the upvote button?? and why does it try to do post instead of get otherwise??-->
 </body>
 </html>

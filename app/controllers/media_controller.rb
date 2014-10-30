@@ -25,7 +25,14 @@ class MediaController < ApplicationController
     @medium.update(medium_params)
     if @medium.save
       redirect_to "/#{@type.downcase.pluralize}", notice: "Edited #{@medium.title}"
+    else
+      render :edit
     end
+  end
+
+  def destroy
+    @medium.destroy
+    redirect_to root_path
   end
 
   private
@@ -38,7 +45,12 @@ class MediaController < ApplicationController
       @type.constantize # looks for a declared constant with name type
     end
 
+    def find_medium
+      @medium = params[:id] ? type_class.find(params[:id]) : nil
+    end
+
     def set_attribution
+      # this is probably model logic
       @attribution = case @type
         when "Book" then "Author: "
         when "Movie" then "Director: "
@@ -55,7 +67,4 @@ class MediaController < ApplicationController
       end
     end
 
-    def find_medium
-      @medium = params[:id] ? type_class.find(params[:id]) : nil
-    end
 end
