@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */
+@font-face {
+  font-family: "Hyperbole";
+  src: url("hyperbole.eot?") format("eot"),
+  url("hyperbole.woff") format("woff"),
+  url("hyperbole.ttf") format("truetype"),
+  url("hyperbole.svg#Hyperbole") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
+header {
+  height: 65px;
+  background: url(/assets/x-all-the-things-template.png) no-repeat left;
+}
+
+header h1 {
+  font-family: "Hyperbole";
+  padding: 20px 0 0 120px;
+}
