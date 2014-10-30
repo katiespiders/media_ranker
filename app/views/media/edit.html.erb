@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit <%= @medium.title %></title>
+</head>
+
+<body>
+  <%= render partial: "/shared/medium_form", locals: {obj: @medium, url: {action: "update"}}%>
+</body>
+</html>

@@ -1,7 +1,6 @@
 class MediaController < ApplicationController
-  before_action :set_type
-  before_action :find_medium, only: [:index, :show, :upvote]
-  before_action :set_attribution, only: [:show, :new]
+  before_action :set_type, :find_medium
+  before_action :set_attribution, only: [:show, :new, :edit]
   # new and show apparently don't need to be explicitly defined; before_actions will run before views are rendered
 
   def index
@@ -18,8 +17,15 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    @medium.update(votes: @medium.votes+1)
+    @medium.update(votes: @medium.votes+1) # figure out how to move this to model
     render :index # figure out how to tell this method what page it was called from?
+  end
+
+  def update
+    @medium.update(medium_params)
+    if @medium.save
+      redirect_to "/#{@type.downcase.pluralize}", notice: "Edited #{@medium.title}"
+    end
   end
 
   private
@@ -42,7 +48,11 @@ class MediaController < ApplicationController
     end
 
     def medium_params
-      params.require(:media).permit(:title, :author, :description, :votes)
+      if @medium
+        params.require(@type.downcase).permit(:title, :author, :description, :votes)
+      else
+        params.require(:media).permit(:title, :author, :description, :votes)
+      end
     end
 
     def find_medium
