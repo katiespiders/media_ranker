@@ -5,12 +5,14 @@
 </head>
 
 <body>
-  <h1 style="display:inline"><%= @medium.title %>    </h1>
+  <h3 class="medium-title"><%= @medium.title %>    </h3>
   <%= @attribution %> <%= @medium.author %>
   <div><%= @medium.description %></div>
-  <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
-  <%= link_to "See all media", root_path %>
-  <%= button_to "Edit #{@medium.title}"  %>
-  <%= button_to "Delete #{@medium.title}", medium_path(@medium.id), {method: :delete} %> <!--why does this have to be in {} when it doesn't on the upvote button?? and why does it try to do post instead of get otherwise??-->
+  <div class="link-btn">
+    <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
+    <%= link_to "See all media", root_path %>
+    <%= link_to "Edit #{@medium.title}", "/#{@medium.type.downcase.pluralize}/#{@medium.id}/edit" %>
+    <%= button_to "Delete #{@medium.title}", medium_path(@medium.id), {method: :delete} %><!--why does this have to be in {} when it doesn't on the upvote button?? and why does it try to do post instead of get otherwise??-->
+  </div>
 </body>
 </html>

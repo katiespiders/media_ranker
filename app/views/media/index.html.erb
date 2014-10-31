@@ -12,7 +12,7 @@
       <% if current_type %>
         <div class="col-sm-12">
           <%= render 'shared/media_list', obj: current_type %>
-          <%= link_to "See all media", root_path %>
+          <span class="link-btn"><%= link_to "See all media", root_path %></span>
         </div>
 
       <% else %>
@@ -21,7 +21,7 @@
             <%= render 'shared/media_list', obj: type %>
             <!-- change this to a media table partial -->
             <% types = type.downcase.pluralize %>
-            <%= link_to "See all #{types}", "/#{types}" %>
+            <span class="link-btn"><%= link_to "See all #{types}", "/#{types}" %></span>
           </div>
         <% end %>
       <% end %>

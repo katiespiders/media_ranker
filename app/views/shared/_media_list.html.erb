@@ -1,7 +1,18 @@
-<h3>Greatest <%= obj.downcase.pluralize %></h3>
+<h3><a href="/<%= obj.downcase.pluralize %>">the best <%= obj.downcase.pluralize %></a></h3>
+
 <ol>
   <% obj.constantize.order('votes DESC').each do |thing| %>
-    <li><%= link_to "#{thing.title}", "/#{thing.type.downcase.pluralize}/#{thing.id}" %>, <%= thing.votes %> votes <%= button_to "Upvote", upvote_path(thing.id), method: :patch %> </li> <!--this would be an awesome place for some helpers!-->
+
+    <li>
+      <div><%= link_to "#{thing.title}", "/#{thing.type.downcase.pluralize}/#{thing.id}" %><div>
+
+      <div class="votes">
+        <%= thing.votes %> votes
+        <span class="link-btn"><%= button_to "Upvote", upvote_path(thing.id), {method: :patch} %></span>
+      </div>
+    </li> <!--this would be an awesome place for some helpers!-->
+
   <% end %>
 </ol>
-<%= link_to "Create new #{obj.downcase}", "/#{obj.downcase.pluralize}/new"  %>
+
+<span class="link-btn"><%= link_to "Create new #{obj.downcase}", "/#{obj.downcase.pluralize}/new"  %></span>
