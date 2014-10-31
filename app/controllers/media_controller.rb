@@ -18,7 +18,7 @@ class MediaController < ApplicationController
 
   def upvote
     @medium.update(votes: @medium.votes+1) # figure out how to move this to model
-    render :index # figure out how to tell this method what page it was called from?
+    redirect_to request.referer
   end
 
   def update
