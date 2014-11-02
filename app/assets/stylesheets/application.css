@@ -32,7 +32,8 @@ header {
 }
 
 body {
-font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;}
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
+}
 
 h1, h2, h3 {
   font-family: "Hyperbole";
@@ -69,7 +70,7 @@ a {
   color: #FF007E;
 }
 
-.link-btn form, .link-btn a, .link-btn div {
+.link-btn form, .link-btn a {
   background-color: #FF007E;
   border-color: #FF007E;
   border-radius: 5px;
@@ -95,6 +96,6 @@ a {
   margin: 0;
 }
 
-.medium-list {
+.medium-show {
   margin: 25px;
 }

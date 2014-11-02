@@ -5,22 +5,23 @@
 </head>
 
 <body>
+  <div class="medium-show">
+    <h3 class="medium-title"><%= @medium.title %></h3>
 
-  <h3 class="medium-title"><%= @medium.title %></h3>
+    <div class="votes">
+      <%= @medium.votes %> votes
+      <span class="link-btn"><%= button_to "Upvote", upvote_path(@medium.id), {method: :patch} %></span>
+    </div>
 
-  <div class="votes">
-    <%= @medium.votes %> votes
-    <span class="link-btn"><%= button_to "Upvote", upvote_path(@medium.id), {method: :patch} %></span>
-  </div>
+    <div><%= @attribution %> <%= @medium.author %></div>
+    <blockquote><%= @medium.description %></blockquote>
 
-  <div><%= @attribution %> <%= @medium.author %></div>
-  <blockquote><%= @medium.description %></blockquote>
-
-  <div class="link-btn">
-    <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
-    <%= link_to "See all media", root_path %>
-    <%= link_to "Edit #{@medium.title}", "/#{@medium.type.downcase.pluralize}/#{@medium.id}/edit" %>
-    <%= button_to "Delete #{@medium.title}", medium_path(@medium.id), {method: :delete} %><!--why does this have to be in {} when it doesn't on the upvote button?? and why does it try to do post instead of get otherwise??-->
+    <div class="link-btn">
+      <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
+      <%= link_to "See all media", root_path %>
+      <%= link_to "Edit #{@medium.title}", "/#{@medium.type.downcase.pluralize}/#{@medium.id}/edit" %>
+      <%= button_to "Delete #{@medium.title}", medium_path(@medium.id), {method: :delete} %><!--why does this have to be in {} when it doesn't on the upvote button?? and why does it try to do post instead of get otherwise??-->
+    </div>
   </div>
 </body>
 </html>

@@ -1,18 +1,17 @@
 <h3><a href="/<%= obj.downcase.pluralize %>">the best <%= obj.downcase.pluralize %></a></h3>
 
-<div class="medium-list">
-<table>
-  <% obj.constantize.order('votes DESC').each do |thing| %>
-    <table>
-      <div><%= link_to "#{thing.title}", "/#{thing.type.downcase.pluralize}/#{thing.id}" %></div>
+<div class="medium-show">
+  <table>
+    <% obj.constantize.order('votes DESC').each do |thing| %>
+        <tr><td><%= link_to "#{thing.title}", "/#{thing.type.downcase.pluralize}/#{thing.id}" %><td></tr>
 
-      <div class="votes">
-        <%= thing.votes %> votes
-        <span class="link-btn"><%= button_to "Upvote", upvote_path(thing.id), {method: :patch} %></span>
-      </div>
+        <tr class="votes">
+          <td><%= thing.votes %> votes</td>
+          <td class="link-btn"><%= button_to "Upvote", upvote_path(thing.id), {method: :patch} %></td>
+        </tr>
 
-  <% end %>
-</table>
+    <% end %>
+  </table>
 </div>
 
 <span class="link-btn"><%= link_to "Create new #{obj.downcase}", "/#{obj.downcase.pluralize}/new"  %></span>
