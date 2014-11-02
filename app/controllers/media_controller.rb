@@ -17,7 +17,7 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    @medium.update(votes: @medium.votes+1) # figure out how to move this to model
+    @medium.update(votes: @medium.votes+1)
     redirect_to request.referer
   end
 
@@ -32,7 +32,7 @@ class MediaController < ApplicationController
 
   def destroy
     @medium.destroy
-    redirect_to root_path
+    redirect_to request.referer
   end
 
   private

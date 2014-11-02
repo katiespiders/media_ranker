@@ -5,9 +5,17 @@
 </head>
 
 <body>
-  <h3 class="medium-title"><%= @medium.title %>    </h3>
-  <%= @attribution %> <%= @medium.author %>
-  <div><%= @medium.description %></div>
+
+  <h3 class="medium-title"><%= @medium.title %></h3>
+
+  <div class="votes">
+    <%= @medium.votes %> votes
+    <span class="link-btn"><%= button_to "Upvote", upvote_path(@medium.id), {method: :patch} %></span>
+  </div>
+
+  <div><%= @attribution %> <%= @medium.author %></div>
+  <blockquote><%= @medium.description %></blockquote>
+
   <div class="link-btn">
     <%= link_to "See all #{@medium.type.downcase.pluralize}", "/#{@medium.type.downcase.pluralize}" %>
     <%= link_to "See all media", root_path %>

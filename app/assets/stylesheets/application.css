@@ -34,7 +34,7 @@ header {
 body {
 font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;}
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-family: "Hyperbole";
 }
 
@@ -44,6 +44,10 @@ h1 {
 
 h3 {
   text-align: center;
+}
+
+h5 {
+  display: inline;
 }
 
 .medium-title {
@@ -65,7 +69,7 @@ a {
   color: #FF007E;
 }
 
-.link-btn form, .link-btn a, .link-btn form {
+.link-btn form, .link-btn a, .link-btn div {
   background-color: #FF007E;
   border-color: #FF007E;
   border-radius: 5px;
@@ -82,11 +86,15 @@ a {
   box-shadow: -1px 1px 1px;
 }
 
-.link-btn form input {
+.link-btn input {
   border: none;
   outline: none;
   background-color: #FF007E;
   border-color: #FF007E;
   padding: 0;
   margin: 0;
+}
+
+.medium-list {
+  margin: 25px;
 }
