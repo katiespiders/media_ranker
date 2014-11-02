@@ -62,11 +62,7 @@ h3 a:link, h3 a:visited, h3 a:active, h3 a:hover {
   color: black;
 }
 
-.votes, .votes form, .votes form div {
-  display: inline;
-}
-
-a {
+a, a:hover {
   color: #FF007E;
 }
 
