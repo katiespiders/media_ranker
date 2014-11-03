@@ -28,7 +28,8 @@
 header {
   height: 65px;
   min-width: 500px;
-  background: url(/assets/x-all-the-things-template.png) no-repeat left;
+  background: url(image-path('x-all-the-things-template.png')) no-repeat left;
+  // this image path only works in scss not css ARGH
 }
 
 body {
