@@ -1,16 +1,26 @@
-<%= form_for obj, url: url do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label @attribution %>
-  <%= f.text_field :author %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <% unless @medium %>
-    <%= f.hidden_field :votes %>
-    <%= hidden_field_tag "media[votes]", 0 %>
+  <%= form_for obj, url: url do |f| %>
+  <div class="medium-form">
+    <div class="form-group">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+      <%= f.label @attribution %><br>
+      <%= f.text_field :author %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
+    <% unless @medium %>
+      <%= f.hidden_field :votes %>
+      <%= hidden_field_tag "media[votes]", 0 %>
+    <% end %>
+    <% if @type == "Medium" %>
+      <%= select_tag(:type, options_for_select([["Album", "Album"], ["Book", "Book"], ["Movie", "Movie"]])) %>
+    <% end %>
+    <div class="submit-btn">
+      <%= f.submit %>
+    </div>
   <% end %>
-  <% if @type == "Medium" %>
-    <%= select_tag(:type, options_for_select([["Album", "Album"], ["Book", "Book"], ["Movie", "Movie"]])) %>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+</div>

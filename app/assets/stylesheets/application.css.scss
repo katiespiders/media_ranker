@@ -67,7 +67,7 @@ a, a:hover {
   color: #FF007E;
 }
 
-.link-btn form, .link-btn a {
+.link-btn form, .link-btn a, .submit-btn {
   background-color: #FF007E;
   border-color: #FF007E;
   border-radius: 5px;
@@ -84,7 +84,7 @@ a, a:hover {
   box-shadow: -1px 1px 1px;
 }
 
-.link-btn input {
+.link-btn input, .submit-btn input {
   border: none;
   outline: none;
   background-color: #FF007E;
@@ -93,6 +93,14 @@ a, a:hover {
   margin: 0;
 }
 
-.medium-show {
+.medium-show, .medium-form {
   margin: 25px;
+}
+
+.form-group input, .form-group textarea {
+  width: 50%;
+}
+
+textarea {
+  height: 100px;
 }

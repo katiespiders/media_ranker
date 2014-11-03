@@ -14,7 +14,7 @@
         <span class="link-btn"><%= button_to "Upvote", upvote_path(@medium.id), {method: :patch} %></span>
       </span></h3>
 
-      <div><%= @attribution %> <%= @medium.author %></div>
+      <div><%= @attribution %>: <%= @medium.author %></div>
       <blockquote><%= @medium.description %></blockquote>
 
       <div class="link-btn">

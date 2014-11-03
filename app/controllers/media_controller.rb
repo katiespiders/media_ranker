@@ -9,6 +9,7 @@ class MediaController < ApplicationController
 
   def create
     @medium = type_class.new(medium_params)
+    raise params.inspect
     if @medium.save
       redirect_to "/#{@type.downcase.pluralize}", notice: "Created new #{@type.downcase} #{@medium.title}." # find out what notice does
     else
@@ -52,10 +53,10 @@ class MediaController < ApplicationController
     def set_attribution
       # this is probably model logic
       @attribution = case @type
-        when "Book" then "Author: "
-        when "Movie" then "Director: "
-        when "Album" then "Artist: "
-        else "Creator: "
+        when "Book" then "Author"
+        when "Movie" then "Director"
+        when "Album" then "Artist"
+        else "Creator"
       end
     end
 
