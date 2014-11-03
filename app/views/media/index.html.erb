@@ -5,8 +5,9 @@
 </head>
 
 <body>
-  <img src="x-all-the-things-template.png" />
-  <div class="container">
+  filename <img src="x-all-the-things-template.png" />
+  full path <img src="/assets/x-all-the-things-template.png" />
+    <div class="container">
     <div class="row">
       <!-- possibly I could do this better now that I have self.types defined for each model? -->
       <% current_type = @medium ? @medium.type : params[:type] %>
