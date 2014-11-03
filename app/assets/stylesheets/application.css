@@ -28,7 +28,7 @@
 header {
   height: 65px;
   min-width: 500px;
-  background: url(image_path('x-all-the-things-template.png')) no-repeat left;
+  background: url(/assets/x-all-the-things-template.png) no-repeat left;
 }
 
 body {
