@@ -9,7 +9,6 @@ class MediaController < ApplicationController
 
   def create
     @medium = type_class.new(medium_params)
-    raise params.inspect
     if @medium.save
       redirect_to "/#{@type.downcase.pluralize}", notice: "Created new #{@type.downcase} #{@medium.title}." # find out what notice does
     else
@@ -33,7 +32,7 @@ class MediaController < ApplicationController
 
   def destroy
     @medium.destroy
-    redirect_to request.referer
+    redirect_to root_path
   end
 
   private
